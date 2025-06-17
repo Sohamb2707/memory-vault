@@ -1,0 +1,17 @@
+# Node modules
+node_modules/
+capsule-notifier/node_modules/
+
+# Build
+build/
+dist/
+
+# Environment files and keys
+.env
+capsule-notifier/.env
+capsule-notifier/firebaseServiceKey.json
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
