@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --bg-color: #FDF6E3; /* Ivory Paper */
+    --primary-accent: #B48A78; /* Aged Leather Brown */
+    --secondary-accent: #7E6651; /* Faded Walnut */
+    --text-color: #3A2F2A; /* Vintage Ink */
+    --cta-color: #D97D54; /* Rust Orange */
+  }
+  
+  body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
+  
+
+.btn-cta {
+    background-color: var(--cta-color);
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  .btn-cta:hover {
+    background-color: #c96945; /* slightly darker rust orange */
+    transform: scale(1.03);
+  }
+  
+  .header ul li:hover {
+    text-decoration: underline;
+    color: var(--cta-color);
+    transition: color 0.3s ease;
+  }
+  
+  .card:hover {
+    background-color: #6e5642; /* Slightly darker than --secondary-accent */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    transform: translateY(-2px);
+  }
+  
+  .header {
+    background-color: var(--primary-accent);
+    text-align: center;
+    color: white;
+  }
+  
+  h1, h2, h3 {
+    color: var(--text-color); 
+  }
+  
+  p {
+    color: var(--text-color); 
+  }
+  .card {
+    background-color: var(--secondary-accent);
+    padding: 16px;
+    margin: 12px;
+    border-radius: 8px;
+    color: white;
+  }
