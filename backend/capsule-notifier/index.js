@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 // Firebase admin setup
-const serviceAccount =  JSON.parse(process.env.FIREBASE_SERVICE_KEY);
+const serviceAccount =  JSON.parse(process.env.FIREBASE_CONFIG);
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
 });
