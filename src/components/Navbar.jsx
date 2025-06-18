@@ -27,9 +27,7 @@ const Navbar = () => {
 
   const handleNavigate = (path) => {
     navigate(path);
-    if (isMobileMenuOpen) {
-      setIsMobileMenuOpen(false);
-    }
+    setIsMobileMenuOpen(false);
   };
 
   return (
@@ -45,12 +43,12 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Right Section for Desktop */}
+        {/* Right Section - Desktop */}
         <div className="hidden md:flex items-center space-x-6">
           <ul className="flex space-x-6">
             <li className="cursor-pointer hover:underline" onClick={() => handleNavigate('/')}>Home</li>
             <li className="cursor-pointer hover:underline" onClick={() => handleNavigate('/my-capsules')}>Capsules</li>
-            <li className="cursor-pointer hover:underline" onClick={() => handleNavigate('/public-capsules')} >Public Vault</li>
+            <li className="cursor-pointer hover:underline" onClick={() => handleNavigate('/public-capsules')}>Public Vault</li>
             <li className="cursor-pointer hover:underline" onClick={() => handleNavigate('/faqs')}>FAQS</li>
           </ul>
           <div className="space-x-4">
@@ -81,10 +79,18 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Hamburger */}
+        {/* Hamburger Menu Button - Mobile */}
         <div className="md:hidden">
-          <button onClick={handleMobileMenuToggle} className="text-white">
-            <i className="fas fa-bars text-2xl"></i>
+          <button onClick={handleMobileMenuToggle}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-6 h-6 text-black"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
           </button>
         </div>
       </div>
@@ -92,13 +98,28 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div
-          className="md:hidden mt-4 p-4 rounded-lg shadow-md"
+          className="md:hidden mt-4 p-4 rounded-lg shadow-md space-y-4"
           style={{
             backgroundColor: 'var(--primary-accent)',
             color: 'var(--bg-color)',
           }}
         >
-          <ul className="space-y-4 text-lg font-medium">
+          <div className="flex justify-between items-center mb-2">
+            <p className="text-lg font-semibold">Menu</p>
+            <button onClick={handleMobileMenuToggle}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-6 h-6 text-white"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+
+          <ul className="space-y-3 text-lg font-medium">
             <li onClick={() => handleNavigate('/')} className="cursor-pointer">🏠 Home</li>
             <li onClick={() => handleNavigate('/my-capsules')} className="cursor-pointer">🧳 Capsules</li>
             <li onClick={() => handleNavigate('/public-capsules')} className="cursor-pointer">🌐 Public Vault</li>
@@ -107,7 +128,7 @@ const Navbar = () => {
               <li>
                 <button
                   onClick={handleLogout}
-                  className="px-3 py-2 rounded-md"
+                  className="w-full px-3 py-2 rounded-md"
                   style={{ backgroundColor: 'var(--cta-color)', color: 'white' }}
                 >
                   🔓 Log Out
@@ -117,16 +138,16 @@ const Navbar = () => {
               <>
                 <li>
                   <button
-                    onClick={() => navigate("/signup")}
-                    className="px-3 py-2 btn-cta"
+                    onClick={() => handleNavigate("/signup")}
+                    className="w-full px-3 py-2 btn-cta"
                   >
                     ✍️ Sign Up
                   </button>
                 </li>
                 <li>
                   <button
-                    onClick={() => navigate("/signin")}
-                    className="px-3 py-2 btn-cta"
+                    onClick={() => handleNavigate("/signin")}
+                    className="w-full px-3 py-2 btn-cta"
                   >
                     🔐 Sign In
                   </button>
@@ -136,7 +157,6 @@ const Navbar = () => {
           </ul>
         </div>
       )}
-
     </div>
   );
 };
