@@ -57,7 +57,7 @@ const CreateCapsule = () => {
 
       try {
         // Step 2: Send invite emails via backend
-        await axios.post('http://localhost:5000/send-invite', {
+        await axios.post('https://memory-vault-backend-cvze.onrender.com/send-invite', {
           trustedContacts: trustedContactsArray,
           userEmail: auth.currentUser.email,
           title: formData.title,
