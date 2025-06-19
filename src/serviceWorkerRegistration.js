@@ -2,6 +2,7 @@
 // register() is not called by default.
 
 const isLocalhost = Boolean(
+  window.location.hostname === 'https://memory-vault-backend-cvze.onrender.com' ||
   window.location.hostname === 'localhost' ||
     window.location.hostname === '[::1]' ||
     window.location.hostname.match(
