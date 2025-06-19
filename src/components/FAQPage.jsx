@@ -14,13 +14,25 @@ const faqs = [
     answer: 'Only you and the trusted contacts you specify can view the capsule after it unlocks, depending on your privacy settings.'
   },
   {
-    question: 'Can I edit or delete a capsule?',
-    answer: 'Capsules can be edited or deleted before their unlock date. After unlocking, they become read-only.'
-  },
-  {
     question: 'Will my trusted contacts be notified?',
     answer: 'Yes, an email notification is sent to your trusted contacts when a capsule is created and again one day before it unlocks.'
   },
+  {
+    question: 'What types of media can I attach?',
+    answer: 'You can attach Google Drive links to images, videos, or documents. Make sure the links are publicly accessible or shared with the trusted contacts.'
+  },
+  {
+    question: 'What happens if the unlock date is in the past?',
+    answer: 'If the unlock date is already passed, and you or your trusted contacts have access, the capsule will be viewable immediately.'
+  },
+  {
+    question: 'Can I share a capsule with multiple people?',
+    answer: 'Yes, you can enter multiple trusted contact emails separated by commas. All will get access once the capsule unlocks.'
+  },
+  {
+    question: 'Do I need to sign in to view or create capsules?',
+    answer: 'Yes, signing in ensures your capsules are securely linked to your account and only accessible by authorized users.'
+  }
 ];
 
 export default function FAQPage() {
