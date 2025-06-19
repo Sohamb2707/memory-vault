@@ -36,12 +36,20 @@ const CapsuleMediaView = () => {
         ? new Date(data.unlockDate.seconds * 1000)
         : new Date(data.unlockDate);
       const now = new Date();
+
+      const isUnlocked = now >= unlockTime;
+
       const isOwner = user?.uid === data.userId;
       const isTrusted = data.trustedContacts?.includes(user?.email);
-      if (now >= unlockTime && (isOwner || isTrusted)) {
+      const isPublic = data.privacy === 'public';
+
+      // ✅ Allow if public AND unlocked
+      // ✅ Or if owner/trusted contact AND unlocked
+      if (isUnlocked && (isPublic || isOwner || isTrusted)) {
         setCanView(true);
       }
     };
+
 
     if (user && id && !capsule) {
       fetchCapsule();
@@ -116,16 +124,16 @@ const CapsuleMediaView = () => {
         border: '2px solid var(--primary-accent)',
       }}
     >
-      
+
       {/* Back Button */}
       <button
         onClick={() => navigate('/')}
         className="px-4 py-2 rounded-md font-semibold shadow hover:scale-105 transition-transform"
-          style={{
-            backgroundColor: 'var(--cta-color)',
-            color: 'white',
-            border: '1px solid var(--cta-color)',
-          }}
+        style={{
+          backgroundColor: 'var(--cta-color)',
+          color: 'white',
+          border: '1px solid var(--cta-color)',
+        }}
       >
         ← Back to Home
       </button>
@@ -161,13 +169,13 @@ const CapsuleMediaView = () => {
       {/* Trusted Contacts */}
       {capsule.trustedContacts?.length > 0 && (
         <div className="mb-6">
-          <p
-            className="text-sm font-medium flex items-center"
-            style={{ color: 'var(--text-color)' }}
-          >
-            🧑‍🤝‍🧑 <span className="ml-2">Visible to: {capsule.trustedContacts.join(", ")}</span>
+          <p className="text-sm font-medium flex items-center">
+            🌍 <span className="ml-2">
+              Visibility: {capsule.privacy === 'public' ? 'Public (visible to all)' : `Private (Visible to: ${capsule.trustedContacts?.join(", ")})`}
+            </span>
           </p>
         </div>
+
       )}
 
       {/* Media Section */}
