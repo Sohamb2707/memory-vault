@@ -90,30 +90,35 @@ const CreateCapsule = () => {
     navigate('/');
   };
   return (
-    <div className='flex items-start'>
-      <button
-        onClick={backToHeroPage}
-        className="ml-6 mt-6 px-4 py-2 rounded-md font-medium border shadow-sm hover:scale-105 transition-transform"
-        style={{
-          backgroundColor: 'var(--cta-color)',
-          color: 'white',
-          borderColor: 'var(--cta-color)',
-        }}
-      >
-        ← back
-      </button>
+    <div className="flex flex-col md:flex-row items-start md:items-start p-4 sm:p-6">
+      {/* Back Button */}
+      <div className="p-6">
+        <button
+          onClick={backToHeroPage}
+          className="px-4 py-2 rounded-md font-semibold shadow hover:scale-105 transition-transform"
+          style={{
+            backgroundColor: 'var(--cta-color)',
+            color: 'white',
+            border: '1px solid var(--cta-color)',
+          }}
+        >
+          ← Back to Home
+        </button>
+      </div>
+
 
       <div
-        className="max-w-xl mx-auto mt-10 p-8 rounded-2xl shadow-xl border"
+        className="w-full max-w-lg mx-auto mt-4 md:mt-10 p-6 sm:p-8 rounded-2xl shadow-xl border"
         style={{
           backgroundColor: 'var(--bg-color)',
           color: 'var(--text-color)',
           borderColor: 'var(--secondary-accent)',
         }}
       >
-        <h2 className="text-3xl font-bold text-center" style={{ color: 'var(--text-color)' }}>
+        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6" style={{ color: 'var(--text-color)' }}>
           🚀 Create Your Capsule
         </h2>
+
         <form onSubmit={handleSubmit} className="space-y-5">
           <input
             type="text"
@@ -203,8 +208,8 @@ const CreateCapsule = () => {
         </form>
       </div>
     </div>
-
   );
+
 };
 
 export default CreateCapsule;
